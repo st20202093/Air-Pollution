@@ -9,6 +9,7 @@ st.set_page_config(page_title="Air Quality Analysis", layout="wide")
 sns.set(style='whitegrid')
 
 data = pd.read_csv("preprocessed_air_data.csv")
+data['datetime'] = pd.to_datetime(data['datetime'])
 model = joblib.load("lightweight_air_pollution_model.pkl")
 expected_features = joblib.load("model_features.pkl")
 
